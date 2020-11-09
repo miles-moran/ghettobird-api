@@ -1,4 +1,4 @@
-ghettobird==0.41
+ghettobird==0.0.42
 asn1crypto==0.24.0
 attrs==19.3.0
 Automat==0.8.0
