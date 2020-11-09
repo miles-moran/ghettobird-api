@@ -1,3 +1,4 @@
+ghettobird==0.41
 asn1crypto==0.24.0
 attrs==19.3.0
 Automat==0.8.0
@@ -69,4 +70,3 @@ wincertstore==0.2
 wrapt==1.11.2
 wsproto==0.11.0
 zope.interface==4.7.1
-ghettobird==0.42
