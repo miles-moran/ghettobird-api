@@ -1,0 +1,14 @@
+{
+    "url": "https://de.indeed.com/cmp/Getyourguide/jobs?jk=08c567f4078850a7&start=0&clearPrefilter=1",
+    "options": {
+        "browser": true
+    },
+    "flightpath": {
+        "jobtitle": {
+            "path": ".//div[@class='cmp-JobDetailTitle']"
+        },
+        "jobdesc": {
+            "path": ".//div[@class='cmp-JobDetailDescription-description']"
+        }
+     }
+}
