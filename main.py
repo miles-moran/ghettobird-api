@@ -7,7 +7,7 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/', methods=["POST"])
+@app.route('/', methods=["POST", "GET"])
 def main():
     routine = request.json
     options = None
