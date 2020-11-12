@@ -27,7 +27,12 @@ def main():
                 chrome_options.add_argument("--no-sandbox")
                 browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
                 options["browser"] = browser
-    result = fly(routine)
+    try:
+        result = fly(routine)
+    except Exception as e:
+        print('-------------------------------------------')
+        print(e)
+        print('-------------------------------------------')
     if browser:
         browser.quit()
     return jsonify(result["results"])
