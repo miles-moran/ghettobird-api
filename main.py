@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from ghettobird import fly
 import json
 from selenium import webdriver
@@ -6,6 +7,8 @@ from pprint import pprint
 import os
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/', methods=["POST", "GET"])
 def main():

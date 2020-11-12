@@ -1,0 +1,17 @@
+{
+    "url": "http://ghettobird.sample.s3-website.us-east-2.amazonaws.com/",
+    "flightpath": {
+      "header": "//*[@class='page-header']",
+      "jobs": [
+        {
+          "@iterate": "//div[@class='job']",
+          "title": ".//h4[@class='title']",
+          "description": ".//div[@class='description']",
+          "dateposted": ".//div[@data-element-type='date']",
+          "salary": "//h3[@id='salary-query']"
+        }
+      ]
+    }
+  }
+  
+  
