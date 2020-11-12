@@ -10,8 +10,8 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+
 @app.route('/', methods=["POST", "GET"])
-@cross_origin
 def main():
     routine = request.json
     options = None
