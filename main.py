@@ -5,15 +5,20 @@ import json
 from selenium import webdriver
 from pprint import pprint
 import os
+from database import db
+from pprint import pprint
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+def getBlueprintById(id, docs):
+    for doc in docs:
+        if doc.id == id:
+            return doc
 
-@app.route('/', methods=["POST", "GET"])
-def main():
-    routine = request.json
+def runRoutine(routine):
+    pprint(routine)
     options = None
     browser = None
     if "options" in routine.keys():
@@ -35,7 +40,22 @@ def main():
         print('-------------------------------------------')
     if browser:
         browser.quit()
-    return jsonify(result["results"])
+    return routine
+
+@app.route('/api', methods=["GET"])
+def getBlueprint():
+    gid = request.args.get('gid')
+    blueprints_ref = db.collection('blueprints')
+    docs = blueprints_ref.stream()
+    blueprint = getBlueprintById(gid, docs).to_dict()
+    scraped = runRoutine(blueprint["blue"])
+    return jsonify(scraped["results"])
+
+@app.route('/', methods=["POST", "GET"])
+def main():
+    routine = request.json
+    scraped = runRoutine(routine)
+    return jsonify(scraped["results"])
 
 if __name__ == '__main__':
     app.run()
